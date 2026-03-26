@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodCourt | Multi-Section Restaurant Menu</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <h1>FoodCourt</h1>
+        <p class="tagline">Explore every section menu in one place.</p>
+      </div>
+      <button id="managerToggle" class="btn">Manager Login</button>
+    </header>
+
+    <main>
+      <section class="notice">
+        <h2>Welcome to FoodCourt</h2>
+        <p>
+          Browse section menus and item photos. Managers can securely log in to
+          add, edit, and remove items.
+        </p>
+      </section>
+
+      <section id="managerPanel" class="manager-panel hidden" aria-live="polite">
+        <h2>Manager Panel</h2>
+
+        <form id="loginForm" class="card">
+          <h3>Login</h3>
+          <label>
+            Username
+            <input type="text" id="username" required />
+          </label>
+          <label>
+            Password
+            <input type="password" id="password" required />
+          </label>
+          <button type="submit" class="btn">Sign In</button>
+          <p id="loginStatus" class="status"></p>
+          <small class="hint">Demo credentials: <b>manager</b> / <b>foodcourt123</b></small>
+        </form>
+
+        <form id="itemForm" class="card hidden">
+          <h3>Add New Item</h3>
+          <label>
+            Section
+            <select id="itemSection" required></select>
+          </label>
+          <label>
+            Name
+            <input type="text" id="itemName" required />
+          </label>
+          <label>
+            Category
+            <input type="text" id="itemCategory" required placeholder="e.g., Pizza" />
+          </label>
+          <label>
+            Price ($)
+            <input type="number" id="itemPrice" min="0" step="0.01" required />
+          </label>
+          <label>
+            Product image
+            <input type="file" id="itemImage" accept="image/*" />
+          </label>
+          <button type="submit" class="btn">Add Item</button>
+          <button type="button" id="logoutBtn" class="btn alt">Logout</button>
+        </form>
+      </section>
+
+      <section id="menuSections" class="menu-grid"></section>
+    </main>
+
+    <template id="itemCardTemplate">
+      <article class="item-card">
+        <img class="item-image" alt="" />
+        <div class="item-info">
+          <p class="item-category"></p>
+          <h4 class="item-name"></h4>
+          <p class="item-price"></p>
+          <div class="item-actions hidden">
+            <button class="btn small edit-btn">Edit</button>
+            <button class="btn small danger delete-btn">Delete</button>
+          </div>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
