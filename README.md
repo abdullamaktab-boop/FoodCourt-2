@@ -47,6 +47,21 @@ Responsive restaurant menu website for **FoodCourt** with manager-only menu edit
   - Database-backed menu items
   - Server-side protected image storage
 
+## Fix GitHub PR merge conflicts (index.html / script.js)
+If GitHub says **\"This branch has conflicts\"**, run these commands locally and push again:
+
+```bash
+git checkout work
+git fetch origin
+git merge origin/main
+# resolve conflicts in index.html and script.js, then:
+git add index.html script.js
+git commit -m "Resolve merge conflicts with main"
+git push origin work
+```
+
+Then refresh the PR page and the **Resolve conflicts** warning should disappear.
+
 ## Why files may not appear on GitHub
 If GitHub only shows `.gitkeep`, your local commits were likely not pushed to the remote default branch.
 
